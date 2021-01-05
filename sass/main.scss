@@ -1,0 +1,181 @@
+// Base colors
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+
+$color-grey-dark: #777;
+$color-white: #fff;
+
+/* Perform universal reset so that every browser renders the page as identical as possible.  */
+*, *::after, *::before {
+    margin: 0; /* Gets rid of standard margins in h1, h2 tags for example */
+    padding: 0;
+    box-sizing: inherit;
+}
+html {
+    font-size: 62.5%;
+}
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.7;
+    color: $color-grey-dark;
+    padding: 2rem; /* White lining around page */
+
+    box-sizing: border-box; /* Borders and paddings are now included in specified size (rather than added to) */
+}
+
+/* Format header */
+.header {
+    height: 95vh; /* Almost completely fill viewport height (95%) */
+    background-image: 
+        linear-gradient(to right bottom, $color-primary-light, $color-primary-dark), 
+        url(../img/hero.jpg);
+    background-size: cover; /* Fit image to size of box */
+    background-position: top; /* Bottom gets resized, top always visible on resizing window */
+    clip-path: polygon(0 0, 100% 0, 100% 80vh, 0% 100%);
+    position: relative; /* To give logo-box an ancestor */
+}
+
+/* Format logo */
+.header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+}
+.header__logo {
+    height: 3.5rem;
+}
+
+
+/* Format title text box */
+.header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.heading-primary {
+    color: $color-white;
+    text-transform: uppercase;
+    margin-bottom: 6rem;  
+}
+.heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3rem;
+
+    animation: move-in-from-left 2s;
+}
+.heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.74rem;
+
+    animation: move-in-from-right 2s ease 0.5s;
+    animation-fill-mode: backwards;
+}
+
+/* Format buttons */
+.btn:link, .btn:visited {
+
+    /* General formatting */
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    transition: transform 0.2s;
+    border-radius: 10rem;
+
+    /* Give relative anchor for ".btn::after" */
+    position: relative;
+}
+.btn--animated {
+    animation: move-in-from-bottom 2s ease 1.5s;
+    animation-fill-mode: backwards;
+}
+
+/* Add depth effect with dynamic shadows */
+.btn:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 1rem 2rem rgba(0,0,0,0.2)
+}
+.btn:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.2)
+}
+
+/* Add pseudo element on hover */
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+
+    /* Put pseudo-element behind parent element */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Defines position if on top of each other */
+
+    /* Add transition effect */
+    transition: all 0.8s;
+}
+.btn:hover::after {
+    transform: scaleX(1.1) scaleY(1.4);
+    opacity: 0;
+}
+
+/* Format white button */
+.btn--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+}
+.btn-white::after {
+    background-color: $color-white;
+}
+
+
+
+/* Animations */
+@keyframes move-in-from-left {
+    0% {
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes move-in-from-bottom {
+    0% {
+        opacity: 0;
+        transform: translateY(5rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes move-in-from-right {
+    0% {
+        opacity: 0;
+        transform: translateX(10rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
