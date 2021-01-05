@@ -1,0 +1,13 @@
+/* Perform universal reset so that every browser renders the page as identical as possible.  */
+*, *::after, *::before {
+    margin: 0; /* Gets rid of standard margins in h1, h2 tags for example */
+    padding: 0;
+    box-sizing: inherit;
+}
+html {
+    // This defines what 1rem is
+    font-size: 62.5%;
+}
+body {
+    box-sizing: border-box; /* Borders and paddings are now included in specified size (rather than added to) */
+}

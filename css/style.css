@@ -19,32 +19,30 @@ body {
   box-sizing: border-box;
   /* Borders and paddings are now included in specified size (rather than added to) */ }
 
-/* Format header */
-.header {
-  height: 95vh;
-  /* Almost completely fill viewport height (95%) */
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
-  background-size: cover;
-  /* Fit image to size of box */
-  background-position: top;
-  /* Bottom gets resized, top always visible on resizing window */
-  clip-path: polygon(0 0, 100% 0, 100% 80vh, 0% 100%);
-  position: relative;
-  /* To give logo-box an ancestor */
-  /* Format logo */
-  /* Format title text box */ }
-  .header__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem; }
-  .header__logo {
-    height: 3.5rem; }
-  .header__text-box {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center; }
+/* Animations */
+@keyframes move-in-from-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes move-in-from-bottom {
+  0% {
+    opacity: 0;
+    transform: translateY(5rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes move-in-from-right {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
 
 .heading-primary {
   color: #fff;
@@ -108,27 +106,29 @@ body {
     .btn--white::after {
       background-color: #fff; }
 
-/* Animations */
-@keyframes move-in-from-left {
-  0% {
-    opacity: 0;
-    transform: translateX(-10rem); }
-  100% {
-    opacity: 1;
-    transform: translate(0); } }
-
-@keyframes move-in-from-bottom {
-  0% {
-    opacity: 0;
-    transform: translateY(5rem); }
-  100% {
-    opacity: 1;
-    transform: translate(0); } }
-
-@keyframes move-in-from-right {
-  0% {
-    opacity: 0;
-    transform: translateX(10rem); }
-  100% {
-    opacity: 1;
-    transform: translate(0); } }
+/* Format header */
+.header {
+  height: 95vh;
+  /* Almost completely fill viewport height (95%) */
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-size: cover;
+  /* Fit image to size of box */
+  background-position: top;
+  /* Bottom gets resized, top always visible on resizing window */
+  clip-path: polygon(0 0, 100% 0, 100% 80vh, 0% 100%);
+  position: relative;
+  /* To give logo-box an ancestor */
+  /* Format logo */
+  /* Format title text box */ }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; }
