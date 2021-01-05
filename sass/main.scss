@@ -5,6 +5,7 @@ $color-primary-dark: #28b485;
 
 $color-grey-dark: #777;
 $color-white: #fff;
+$color-black: #000;
 
 /* Perform universal reset so that every browser renders the page as identical as possible.  */
 *, *::after, *::before {
@@ -28,6 +29,7 @@ body {
 
 /* Format header */
 .header {
+    
     height: 95vh; /* Almost completely fill viewport height (95%) */
     background-image: 
         linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)), 
@@ -36,111 +38,127 @@ body {
     background-position: top; /* Bottom gets resized, top always visible on resizing window */
     clip-path: polygon(0 0, 100% 0, 100% 80vh, 0% 100%);
     position: relative; /* To give logo-box an ancestor */
+
+    /* Format logo */
+    &__logo-box {
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+    }
+    &__logo {
+        height: 3.5rem;
+    }
+
+    /* Format title text box */
+    &__text-box {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
 }
 
-/* Format logo */
-.header__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem;
-}
-.header__logo {
-    height: 3.5rem;
-}
 
 
-/* Format title text box */
-.header__text-box {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
-
+// Format primary heading
 .heading-primary {
+
     color: $color-white;
     text-transform: uppercase;
     margin-bottom: 6rem;  
-}
-.heading-primary--main {
-    display: block;
-    font-size: 6rem;
-    font-weight: 400;
-    letter-spacing: 3rem;
 
-    animation: move-in-from-left 2s;
-}
-.heading-primary--sub {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1.74rem;
+    &--main {
+        display: block;
+        font-size: 6rem;
+        font-weight: 400;
+        letter-spacing: 3rem;
+    
+        animation: move-in-from-left 2s;
+    }
 
-    animation: move-in-from-right 2s ease 0.5s;
-    animation-fill-mode: backwards;
+    &--sub {
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1.74rem;
+    
+        animation: move-in-from-right 2s ease 0.5s;
+        animation-fill-mode: backwards;
+    }
 }
+
 
 /* Format buttons */
-.btn:link, .btn:visited {
+.btn {
 
-    /* General formatting */
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 1.5rem 4rem;
-    display: inline-block;
-    transition: transform 0.2s;
-    border-radius: 10rem;
+    &:link, &:visited {
 
-    /* Give relative anchor for ".btn::after" */
-    position: relative;
-}
-.btn--animated {
-    animation: move-in-from-bottom 2s ease 1.5s;
-    animation-fill-mode: backwards;
-}
+        // General formatting
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        display: inline-block;
+        transition: transform 0.2s;
+        border-radius: 10rem;
 
-/* Add depth effect with dynamic shadows */
-.btn:hover {
-    transform: translateY(-0.3rem);
-    box-shadow: 0 1rem 2rem rgba(0,0,0,0.2)
-}
-.btn:active {
-    transform: translateY(-0.1rem);
-    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.2)
-}
+        /* Give relative anchor for ".btn::after" */
+        position: relative;
+    }
 
-/* Add pseudo element on hover */
-.btn::after {
-    content: "";
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-    border-radius: 10rem;
+    // Add depth effect with dynamic shadows
+    &:hover {
+        transform: translateY(-0.3rem);
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
 
-    /* Put pseudo-element behind parent element */
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1; /* Defines position if on top of each other */
+        &::after {
+            transform: scaleX(1.1) scaleY(1.4);
+            opacity: 0;
+        }
+    }
+    
+    &:active {
+        transform: translateY(-0.1rem);
+        box-shadow: 0 0.5rem 1rem rgba($color-black,0.2)        
+    }
 
-    /* Add transition effect */
-    transition: all 0.8s;
-}
-.btn:hover::after {
-    transform: scaleX(1.1) scaleY(1.4);
-    opacity: 0;
-}
+    // Add Pseudo-element on hover
+    &::after {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+    
+        /* Put pseudo-element behind parent element */
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1; /* Defines position if on top of each other */
+    
+        /* Add transition effect */
+        transition: all 0.8s;
+    }
+    
+    
 
-/* Format white button */
-.btn--white {
-    background-color: $color-white;
-    color: $color-grey-dark;
-}
-.btn-white::after {
-    background-color: $color-white;
-}
+    // Animated class 
+    &--animated {
+        animation: move-in-from-bottom 2s ease 1.5s;
+        animation-fill-mode: backwards;
+    }
 
+    /* Format white button */
+    &--white {
+        background-color: $color-white;
+        color: $color-grey-dark;
+
+        &::after {
+            background-color: $color-white;
+        }
+    }
+
+}
 
 
 /* Animations */
