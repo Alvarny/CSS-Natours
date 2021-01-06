@@ -43,10 +43,8 @@ body {
     letter-spacing: 2px;
     transition: all 0.5s;
 
-    // Apply gradient, clip gradient to text, hide text
-    background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
-    background-clip: text;
-    color: transparent;
+
+    @include text-gradient($color-primary-light, $color-primary-dark);
     
     &:hover {
         transform: skewY(1deg);

@@ -5,3 +5,12 @@
         clear: both;
     }
 }
+
+@mixin text-gradient($col1, $col2) {
+    // Apply gradient, clip gradient to text, hide text
+    background-image: linear-gradient(to right, $col1, $col2);
+    background-clip: text;
+    color: transparent;
+    // Only go as far as needed
+    display: inline-block;
+}
