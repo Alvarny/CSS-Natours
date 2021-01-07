@@ -1,7 +1,7 @@
 /* Format buttons */
 .btn {
 
-    &:link, &:visited {
+    &, &:link, &:visited {
 
         // General formatting
         font-size: $default-font-size;
@@ -14,6 +14,10 @@
 
         /* Give relative anchor for ".btn::after" */
         position: relative;
+
+        // Change for the <button> element
+        border: none;
+        cursor: pointer;
     }
 
     // Add depth effect with dynamic shadows
@@ -27,7 +31,8 @@
         }
     }
 
-    &:active {
+    &:active, &:focus {
+        outline: none;
         transform: translateY(-0.1rem);
         box-shadow: 0 0.5rem 1rem rgba($color-black,0.2)        
     }
@@ -61,7 +66,7 @@
     /* Format white button */
     &--white {
         background-color: $color-white;
-        color: $color-grey-dark;
+        color: $color-grey-dark-1;
 
         &::after {
             background-color: $color-white;
