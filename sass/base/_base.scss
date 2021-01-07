@@ -7,6 +7,8 @@
 html {
     // This defines what 1rem is
     font-size: 62.5%;
+    
+    scroll-behavior: smooth;
 }
 body {
     box-sizing: border-box; /* Borders and paddings are now included in specified size (rather than added to) */
