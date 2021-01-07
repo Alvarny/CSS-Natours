@@ -11,10 +11,6 @@
 
     transition: all .3s;
 
-    & > * {
-        transform: skewX(12deg);
-    }
-
     &:not(:last-child) {
         margin-bottom: 8rem;
     }
@@ -67,6 +63,7 @@
     }
 
     &__text {
-
+        transform: skewX(12deg);
     }
+
 }
