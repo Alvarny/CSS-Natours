@@ -18,11 +18,11 @@
     }
 
     // Start to use bigger image with 2x screen (192 dpi) and min width of 600 px -> 1200px
-    @media (min-resolution: 192dpi) and (min-width: 37.5rem),
+    @media only screen and (min-resolution: 192dpi) and (min-width: 37.5rem),
             // Replacement for safari
-            (-webkit-min-device-pixel-ration: 2) and (min-width: 37.5rem),
+            only screen and (-webkit-min-device-pixel-ration: 2) and (min-width: 37.5rem),
             // and with 1x screen (96 dpi) and min width of 1200 px -> 1200px
-            (min-resolution: 96dpi) and (min-width: 75rem)
+            only screen and (min-resolution: 96dpi) and (min-width: 75rem)
     {
         background-image: 
             linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)), 
