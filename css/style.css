@@ -43,6 +43,9 @@ body {
     body {
       padding: 0; } }
 
+::selection {
+  background-color: #7ed56f; }
+
 /* Animations */
 @keyframes move-in-from-left {
   0% {
