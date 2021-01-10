@@ -137,16 +137,22 @@
             color: $color-white;
             text-transform: uppercase;
 
+            // Hide normal 'Hover me' text in tab-port
             &--normal {
-
-                @include respond(tab-port) {
+                @media only screen and (max-width: 56.25em),
+                only screen and (hover:none)
+                {
                     display: none;
                 }
             }
             
+            // Display tablet text 'Click me' in tab-port
             &--tablet {
+
                 display: none;
-                @include respond(tab-port) {
+                @media only screen and (max-width: 56.25em),
+                only screen and (hover:none)
+                {
                     display: block;
                 }
             }
