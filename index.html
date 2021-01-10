@@ -69,9 +69,17 @@
                     </div>
                     <div class="col-1-of-2">
                         <div class="composition">
-                            <img src="img/nat-1-large.jpg" alt="Photo 1" class="composition__photo composition__photo--p1">
+                            <img srcset="img/nat-1.jpg 300w, img/nat-1-large.jpg 1000w" sizes="(max-width: 56.25rem) 20vw, (max-width: 37.5rem) 32vw, 300px" 
+                                alt="Photo 1" src="img/nat-1-large.jpg" class="composition__photo composition__photo--p1">
+                            <img srcset="img/nat-2.jpg 300w, img/nat-2-large.jpg 1000w" sizes="(max-width: 56.25rem) 20vw, (max-width: 37.5rem) 32vw, 300px" 
+                                alt="Photo 2" src="img/nat-2-large.jpg" class="composition__photo composition__photo--p2">
+                            <img srcset="img/nat-3.jpg 300w, img/nat-3-large.jpg 1000w" sizes="(max-width: 56.25rem) 20vw, (max-width: 37.5rem) 32vw, 300px" 
+                                alt="Photo 3" src="img/nat-3-large.jpg" class="composition__photo composition__photo--p3">
+
+
+                            <!-- <img src="img/nat-1-large.jpg" alt="Photo 1" class="composition__photo composition__photo--p1">
                             <img src="img/nat-2-large.jpg" alt="Photo 2" class="composition__photo composition__photo--p2">
-                            <img src="img/nat-3-large.jpg" alt="Photo 3" class="composition__photo composition__photo--p3">
+                            <img src="img/nat-3-large.jpg" alt="Photo 3" class="composition__photo composition__photo--p3"> -->
                         </div>
                     </div>
                 </div>
@@ -147,6 +155,10 @@
                                         <li>Difficulty: very easy</li>
                                     </ul>
                                 </div>
+                                <div class="card__hint card__hint--1 u-center-text">
+                                    <p class="card__hint-text card__hint-text--normal">Hover me</p>
+                                    <p class="card__hint-text card__hint-text--tablet">Click me</p>
+                                </div>
                             </div>
                             <div class="card__side card__side--back card__side--back-1">
                                 <div class="card__cta">
@@ -178,6 +190,10 @@
                                         <li>Difficulty: medium</li>
                                     </ul>
                                 </div>
+                                <div class="card__hint card__hint--2 u-center-text">
+                                    <p class="card__hint-text card__hint-text--normal">Hover me</p>
+                                    <p class="card__hint-text card__hint-text--tablet">Click me</p>
+                                </div>
                             </div>
                             <div class="card__side card__side--back card__side--back-2">
                                 <div class="card__cta">
@@ -208,6 +224,10 @@
                                         <li>Sleep in provided tents</li>
                                         <li>Difficulty: hard</li>
                                     </ul>
+                                </div>
+                                <div class="card__hint card__hint--3 u-center-text">
+                                    <p class="card__hint-text card__hint-text--normal">Hover me</p>
+                                    <p class="card__hint-text card__hint-text--tablet">Click me</p>
                                 </div>
                             </div>
                             <div class="card__side card__side--back card__side--back-3">
@@ -329,7 +349,13 @@
         <footer class="footer">
 
             <div class="footer__logo-box">
-                <img class="footer__logo" src="img/logo-green-2x.png" alt="Full logo">
+                <picture class="footer__logo">
+                    <!-- Logo for small screens (<=600px) --> 
+                    <source srcset="img/logo-green-small-1x.png 1x, img/logo-green-small-2x.png 2x" media="(max-width: 37.5rem)">
+                    <!-- Fallback logo --> 
+                    <img class="footer__logo" srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" src="img/logo-green-2x.png" alt="Full logo">
+                </picture>
+                
             </div>
             <div class="row">
                 <div class="col-1-of-2">
@@ -355,8 +381,9 @@
         <div class="popup" id="popup">
             <div class="popup__content">
                 <div class="popup__left">
-                    <img class="popup__image" src="img/nat-8.jpg" alt="Tour photo">
-                    <img class="popup__image" src="img/nat-9.jpg" alt="Tour photo">
+                    <img class="popup__image popup__image--1" src="img/nat-7.jpg" alt="Tour photo">
+                    <img class="popup__image popup__image--2" src="img/nat-8.jpg" alt="Tour photo">
+                    <img class="popup__image popup__image--3" src="img/nat-10.jpg" alt="Tour photo">
                 </div>
                 <div class="popup__right">
                     <a href="#section-tours" class="popup__close">&times;</a>

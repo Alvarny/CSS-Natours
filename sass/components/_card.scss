@@ -2,7 +2,7 @@
     perspective: 150rem;
 
     position: relative; // Give anchor point to children
-    height: 52rem; // Needs to be specified same as children hight to not become 0
+    height: 56rem; // Needs to be specified same as children hight to not become 0
 
     // Class for both sides
     &__side {
@@ -10,7 +10,7 @@
         // General formatting
         color: #fff;
         font-size: 2rem;
-        height: 52rem;
+        height: 56rem;
         width: 100%;
 
         transition: all .8s ease;
@@ -21,6 +21,7 @@
         left: 0;
 
         // Hide back side
+        -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
 
         border-radius: 3px;
@@ -110,11 +111,55 @@
         }
     }
 
+    &__hint {
+
+        background: green;
+        height: 8.5rem;
+        clip-path: polygon(0% 45%, 100% 0, 100% 100%, 0 100%);
+
+        &--1 {
+            background-image: linear-gradient(to right bottom, rgba($color-secondary-light, .95), rgba($color-secondary-dark, .95));
+        }
+        &--2 {
+            background-image: linear-gradient(to right bottom, rgba($color-primary-light, .85), rgba($color-primary-dark, .85));
+        }
+        &--3 {
+            background-image: linear-gradient(to right bottom, rgba($color-tertiary-light, .85), rgba($color-tertiary-dark, .85));
+        }
+
+
+        &-text {
+
+            padding-top: 3.7rem;
+            font-size: 1.6rem;
+            letter-spacing: .25rem;
+            font-weight: 400;
+            color: $color-white;
+            text-transform: uppercase;
+
+            &--normal {
+
+                @include respond(tab-port) {
+                    display: none;
+                }
+            }
+            
+            &--tablet {
+                display: none;
+                @include respond(tab-port) {
+                    display: block;
+                }
+            }
+            
+        }
+
+    }
+
     
     &__details {
 
         color: $color-black;
-        padding: 3rem;
+        padding: 1rem 2rem 1rem 2rem;
 
         ul {
             list-style: none;
@@ -157,5 +202,7 @@
         font-size: 6rem;
         font-weight: 100;
     }
+
+    
 
 }

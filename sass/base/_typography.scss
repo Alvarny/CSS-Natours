@@ -4,7 +4,9 @@
 
     color: $color-white;
     text-transform: uppercase;
-    margin-bottom: 6rem;  
+    margin-bottom: 6rem; 
+    
+   
 
     &--main {
         display: block;
@@ -13,6 +15,11 @@
         letter-spacing: 3rem;
     
         animation: move-in-from-left 2s;
+
+        @include respond(phone) {
+            letter-spacing: .5rem;
+            font-size: 5rem;
+        }
     }
 
     &--sub {
@@ -23,6 +30,10 @@
     
         animation: move-in-from-right 2s ease 0.5s;
         animation-fill-mode: backwards;
+
+        @include respond(phone) {
+            letter-spacing: .5rem;
+        }
     }
 }
 
@@ -32,7 +43,6 @@ body {
     font-size: $default-font-size;
     line-height: 1.7;
     color: $color-grey-dark-1;
-    padding: 2rem; /* White lining around page */
 }
 
 .heading-secondary {
@@ -49,6 +59,13 @@ body {
     &:hover {
         //transform: skewY(1deg);
         text-shadow: 0.5rem 1rem 2rem rgba($color-black, 0.2);
+    }
+
+    @include respond(tab-port) {
+        font-size: 3rem;
+    }
+    @include respond(phone) {
+        font-size: 2.5rem;
     }
 }
 

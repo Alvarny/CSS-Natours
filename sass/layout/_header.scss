@@ -1,14 +1,38 @@
 /* Format header */
 .header {
     
-    height: 95vh; /* Almost completely fill viewport height (95%) */
+    height: 85vh;
+
     background-image: 
         linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)), 
-        url(../img/hero.jpg);
+        url(../img/hero-small.jpg);
     background-size: cover; /* Fit image to size of box */
     background-position: top; /* Bottom gets resized, top always visible on resizing window */
-    clip-path: polygon(0 0, 100% 0, 100% 80vh, 0% 100%);
+    
     position: relative; /* To give logo-box an ancestor */
+
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 80vh, 0% 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 80vh, 0% 100%);
+        height: 95vh; /* Almost completely fill viewport height (95%) */
+    }
+
+    // Start to use bigger image with 2x screen (192 dpi) and min width of 600 px -> 1200px
+    @media (min-resolution: 192dpi) and (min-width: 37.5rem),
+            // Replacement for safari
+            (-webkit-min-device-pixel-ration: 2) and (min-width: 37.5rem),
+            // and with 1x screen (96 dpi) and min width of 1200 px -> 1200px
+            (min-resolution: 96dpi) and (min-width: 75rem)
+    {
+        background-image: 
+            linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)), 
+            url(../img/hero.jpg);
+    }
+
+
+    @include respond(phone) {
+        clip-path: polygon(0 0, 100% 0, 100% 85vh, 0% 100%);
+    }
 
     /* Format logo */
     &__logo-box {

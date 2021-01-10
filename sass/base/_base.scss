@@ -4,12 +4,34 @@
     padding: 0;
     box-sizing: inherit;
 }
+
 html {
-    // This defines what 1rem is
+    
+    @include respond(tab-land) {
+        font-size: 56.25%;  // 1rem is now 9px (9px / 16 px = 56.25%)
+    }
+
+    @include respond(tab-port) {
+        font-size: 50%;  // 1rem is now 8px (8px / 16 px = 50%)
+    }
+
+
+    // This defines what 1rem [10px] is for normal desktops
     font-size: 62.5%;
+
+    @include respond(big-desk) {
+        font-size: 80%;  // 1rem is now 12px (12px / 16 px = 80%)
+    }
     
     scroll-behavior: smooth;
 }
+
 body {
     box-sizing: border-box; /* Borders and paddings are now included in specified size (rather than added to) */
+    padding: 2rem; /* White lining around page */
+
+    @include respond(tab-port) {
+        padding: 0;
+    }
+    
 }
